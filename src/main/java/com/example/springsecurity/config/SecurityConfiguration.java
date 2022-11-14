@@ -1,38 +1,41 @@
 package com.example.springsecurity.config;
 
+import com.example.springsecurity.aad.AADAuthenticationFilter;
+import com.microsoft.azure.spring.autoconfigure.aad.AADAuthenticationProperties;
+import com.microsoft.azure.spring.autoconfigure.aad.ServiceEndpointsProperties;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @EnableWebSecurity
+@EnableConfigurationProperties({AADAuthenticationProperties.class, ServiceEndpointsProperties.class})
+@Configuration
+@RequiredArgsConstructor
 public class SecurityConfiguration {
+
+private final AADAuthenticationProperties aadAuthFilterProperties;
+private final ServiceEndpointsProperties serviceEndpointsProperties;
+
 private static final String ADMIN_ROLE="ADMIN";
         @Bean
         public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-            http.csrf()
+            http.cors().and()
+            .csrf()
                     .disable()
                     .addFilterAfter(
-                    customAuthFilter(), BasicAuthenticationFilter.class)
+                    new AADAuthenticationFilter(
+                            aadAuthFilterProperties,serviceEndpointsProperties), UsernamePasswordAuthenticationFilter.class)
                     .authorizeRequests()
                     .antMatchers("/","/login","/logout", "/oauth/authorize").permitAll()
-                    .antMatchers(HttpMethod.DELETE)
-                    .hasRole(ADMIN_ROLE)
-                    .antMatchers("/admin/**")
-                    .hasAnyRole(ADMIN_ROLE)
-                    .antMatchers("/user/**")
-                    .hasAnyRole("USER", ADMIN_ROLE)
-                    .anyRequest()
-                    .authenticated()
-                    .and().formLogin();
-
+                    .anyRequest().permitAll();
+//                    .authenticated()
+//                    .and().formLogin();
             return http.build();
         }
 
-    @Bean
-    public MyCustomFilter customAuthFilter(){
-        return new MyCustomFilter();
-    }
 }
