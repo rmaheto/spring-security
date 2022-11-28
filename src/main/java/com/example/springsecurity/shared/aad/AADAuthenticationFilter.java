@@ -1,7 +1,6 @@
-package com.example.springsecurity.aad;
+package com.example.springsecurity.shared.aad;
 
-import com.microsoft.azure.spring.autoconfigure.aad.AADAuthenticationProperties;
-import com.microsoft.azure.spring.autoconfigure.aad.ServiceEndpointsProperties;
+import com.azure.spring.autoconfigure.aad.AADAuthenticationProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -22,20 +21,21 @@ public class AADAuthenticationFilter extends OncePerRequestFilter {
     private static final String CURRENT_USER_PRINCIPAL_GRAPHAPI_TOKEN = "CURRENT_USER_PRINCIPAL_GRAPHAPI_TOKEN";
 
     private AADAuthenticationProperties aadAuthProps;
-    private ServiceEndpointsProperties serviceEndpointsProps;
+//    private ServiceEndpointsProperties serviceEndpointsProps;
 
-    public AADAuthenticationFilter(AADAuthenticationProperties aadAuthProps, ServiceEndpointsProperties serviceEndpointsProps) {
+    public AADAuthenticationFilter(AADAuthenticationProperties aadAuthProps) {
         this.aadAuthProps = aadAuthProps;
-        this.serviceEndpointsProps = serviceEndpointsProps;
+//        this.serviceEndpointsProps = serviceEndpointsProps;
     }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-        String authHeader = request.getHeader("Authorization");
+        String authHeader = request.getHeader(TOKEN_HEADER);
         if (StringUtils.hasLength(authHeader) && authHeader.startsWith(TOKEN_TYPE)) {
             try {
                 final String idToken = authHeader.replace(TOKEN_TYPE, "");
+//                final ServiceEndpoints serviceEndpoints = serviceEndpointsProps.getServiceEndpoints(aadAuthProps.getEnvironment());
 
                 AADAuthenticationService aadAuthenticationService = (AADAuthenticationService) WebApplicationContextUtils
                         .getWebApplicationContext(request.getServletContext()).getBean("aadAuthenticationService");

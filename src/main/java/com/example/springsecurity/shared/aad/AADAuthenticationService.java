@@ -1,8 +1,8 @@
-package com.example.springsecurity.aad;
+package com.example.springsecurity.shared.aad;
 
+import com.azure.spring.autoconfigure.aad.AADAuthenticationProperties;
+import com.azure.spring.autoconfigure.aad.UserPrincipal;
 import com.microsoft.aad.msal4j.*;
-import com.microsoft.azure.spring.autoconfigure.aad.AADAuthenticationProperties;
-import com.microsoft.azure.spring.autoconfigure.aad.UserPrincipal;
 import com.nimbusds.jose.JWSObject;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.JWTParser;
@@ -27,7 +27,7 @@ public class AADAuthenticationService {
         try {
             JWTClaimsSet jwtClaimsSet = JWTParser.parse(idToken).getJWTClaimsSet();
             JWSObject jwsObject = JWSObject.parse(idToken);
-             new UserPrincipal(jwsObject, jwtClaimsSet);
+             new UserPrincipal(idToken,jwsObject, jwtClaimsSet);
         } catch (ParseException | JwtException e) {
             throw new RuntimeException(e);
         }

@@ -1,0 +1,25 @@
+spring:
+  security:
+    user:
+      name: user
+      password: user
+      spring:
+        main:
+          allow-circular-references: true
+
+weather:
+  api-resource: "eb2fc556-9a64-472a-ae99-5de222d432e7"
+  api: "https://weather-service.azure-api.net/"
+  apiKey: "811b2b60177f4f85969a23bf8f7113f5"
+  url: "https://api.openweathermap.org/data/2.5/weather"
+
+azure:
+  activedirectory:
+    activeDirectoryGroups: ignore
+    graphApiUrl: "https://graph.microsoft.com/v1.0/me?$select=onPremisesSamAccountName,id,givenName,surname,jobTitle,mail,businessPhones"
+    tenant-id: "28b399b4-4423-447e-ac00-6f25402c242d"
+    client-id: "b7b7b31a-94b9-4637-a13b-7044751f2a33"
+    client-secret: "Uej8Q~RwmBVld7ySqsQi9YiU07yoX_tXPIjCTcK3"
+
+
+

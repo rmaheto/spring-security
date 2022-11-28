@@ -1,4 +1,4 @@
-package com.example.springsecurity.entity;
+package com.example.springsecurity.entity.user;
 
 import lombok.Data;
 
@@ -10,9 +10,10 @@ import java.util.List;
 public class User implements Serializable {
     private static final long serialVersionUID = 6123737363636L;
 
-    private String FirstName;
+    private String firstName;
     private String middleName;
     private String lastName;
+    private String phoneNumber;
     private String preferredName;
     private String group;
     private String branch;
