@@ -1,7 +1,7 @@
-package com.example.springsecurity.config.restframework;
+package com.example.springsecurity.config.rest;
 
 import com.example.springsecurity.service.graphapi.GraphHttpRequestInterceptor;
-import com.example.springsecurity.shared.interceptor.OutboundRequestInterceptor;
+import com.example.springsecurity.shared.restframework.interceptor.OutboundRequestInterceptor;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
@@ -16,7 +16,6 @@ import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Configuration

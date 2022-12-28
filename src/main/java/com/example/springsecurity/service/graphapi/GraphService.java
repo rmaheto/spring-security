@@ -1,6 +1,6 @@
 package com.example.springsecurity.service.graphapi;
 
-import com.example.springsecurity.entity.user.UserDTO;
+import com.example.springsecurity.shared.user.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

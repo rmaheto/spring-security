@@ -1,4 +1,4 @@
-package com.example.springsecurity.shared.request;
+package com.example.springsecurity.shared.restframework.request;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;

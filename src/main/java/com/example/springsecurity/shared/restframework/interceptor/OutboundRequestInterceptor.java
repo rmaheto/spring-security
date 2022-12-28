@@ -1,7 +1,7 @@
-package com.example.springsecurity.shared.interceptor;
+package com.example.springsecurity.shared.restframework.interceptor;
 
 import com.example.springsecurity.service.azureservicetoken.GenerateServiceToken;
-import com.example.springsecurity.shared.request.RequestContext;
+import com.example.springsecurity.shared.restframework.request.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;

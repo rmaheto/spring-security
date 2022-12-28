@@ -1,4 +1,4 @@
-package com.example.springsecurity.shared.aad;
+package com.example.springsecurity.shared.restframework.aad;
 
 import com.azure.spring.autoconfigure.aad.AADAuthenticationProperties;
 import lombok.RequiredArgsConstructor;

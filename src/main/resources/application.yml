@@ -17,9 +17,19 @@ azure:
   activedirectory:
     activeDirectoryGroups: ignore
     graphApiUrl: "https://graph.microsoft.com/v1.0/me?$select=onPremisesSamAccountName,id,givenName,surname,jobTitle,mail,businessPhones"
+    signInUrl: "https://login.microsoftonline.com/"
     tenant-id: "28b399b4-4423-447e-ac00-6f25402c242d"
     client-id: "b7b7b31a-94b9-4637-a13b-7044751f2a33"
     client-secret: "Uej8Q~RwmBVld7ySqsQi9YiU07yoX_tXPIjCTcK3"
 
+cloud:
+  aws:
+    credentials:
+      access-key: ""
+      secret-key: ""
+    region: "us-east-1"
 
+s3:
+  bucket:
+    name: "codemaniac-demo"
 

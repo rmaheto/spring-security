@@ -1,7 +1,7 @@
 package com.example.springsecurity.controller;
 
 import com.example.springsecurity.service.RetrieveUserService;
-import com.example.springsecurity.entity.user.User;
+import com.example.springsecurity.shared.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

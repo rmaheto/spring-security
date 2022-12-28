@@ -3,7 +3,7 @@ package com.example.springsecurity.config;
 import com.azure.spring.aad.webapp.AADWebSecurityConfigurerAdapter;
 import com.azure.spring.autoconfigure.aad.AADAuthenticationProperties;
 import com.example.springsecurity.security.UserInfoFilter;
-import com.example.springsecurity.shared.aad.AADAuthenticationFilter;
+import com.example.springsecurity.shared.restframework.aad.AADAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

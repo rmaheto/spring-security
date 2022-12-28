@@ -1,7 +1,7 @@
 package com.example.springsecurity.security;
 
-import com.example.springsecurity.entity.user.UserDTO;
-import com.example.springsecurity.entity.user.UserPrincipal;
+import com.example.springsecurity.shared.user.UserDTO;
+import com.example.springsecurity.shared.user.UserPrincipal;
 import com.example.springsecurity.service.graphapi.GraphService;
 import com.nimbusds.oauth2.sdk.util.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.example.springsecurity.service;
 
-import com.example.springsecurity.entity.user.User;
-import com.example.springsecurity.entity.user.UserPrincipal;
+import com.example.springsecurity.shared.user.User;
+import com.example.springsecurity.shared.user.UserPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 

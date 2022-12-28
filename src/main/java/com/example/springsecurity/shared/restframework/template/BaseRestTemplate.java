@@ -1,4 +1,4 @@
-package com.example.springsecurity.config.restframework.template;
+package com.example.springsecurity.shared.restframework.template;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;

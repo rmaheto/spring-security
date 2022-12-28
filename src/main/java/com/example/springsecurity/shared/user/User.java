@@ -1,4 +1,4 @@
-package com.example.springsecurity.entity.user;
+package com.example.springsecurity.shared.user;
 
 import lombok.Data;
 
